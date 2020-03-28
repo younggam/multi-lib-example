@@ -28,7 +28,7 @@ or Vars.content.getByName(ContentType.item,"item-name")  ex) Vars.content.getByN
 Modded item : Vars.content.getByName(ContentType.item,"Mod-Name"+"-"+"modded-item")
 
 LiquidStack(liquid,amount)
-Vanilla liquids : Liquids.item-name ex)liquids.oil , Liquids.slag
+Vanilla liquids : Liquids.item-name ex)Liquids.oil , Liquids.slag
 or Vars.content.getByName(ContentType.liquid,"liquids-name")  ex) Vars.content.getByName(ContentType.liquid,"oil"), Vars.content.getByName(ContentType.liquid,"water")
 Modded liquids : Vars.content.getByName(ContentType.liquid,"Mod-Name"+"-"+"modded-liquids")
 
