@@ -6,6 +6,8 @@ const multi2=multiLib.extend(GenericCrafter,GenericCrafter.GenericCrafterEntity,
 /*length of output, input, crafTimes should same.
 if not, I'm not sure which error happens
 
+*FACTORY DUMP ITEM OF OUTPUT UNCONDITIONALLY*
+
 output
 -second from the back : liquid *IF YOU DON't NEED IT, YOU MUST SET NULL**only one kind of liquid available for each output*
 -first from the back : power production *IF YOU DON't NEED IT, YOU MUST SET NULL*
