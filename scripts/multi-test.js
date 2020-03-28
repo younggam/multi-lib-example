@@ -10,6 +10,8 @@ output
 -first from the back : power production *IF YOU DON't NEED IT, YOU MUST SET NULL*
 -else : items *place representative item in first space*
 
+*FACTORY DUMP ITEM OF OUTPUT UNCONDITIONALLY*
+
 input
 -second from the back : liquid *IF YOU DON't NEED IT, YOU MUST SET NULL**only one kind of liquid available for each output*
 -first from the back : power production *IF YOU DON't NEED IT, YOU MUST SET NULL*
