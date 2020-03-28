@@ -15,7 +15,7 @@ output
 
 input
 -second from the back : liquid *IF YOU DON't NEED IT, YOU MUST SET NULL**only one kind of liquid available for each output*
--first from the back : power production *IF YOU DON't NEED IT, YOU MUST SET NULL*
+-first from the back : power usage *IF YOU DON't NEED IT, YOU MUST SET NULL*
 -else : items *free*
 
 craftTimes
@@ -23,12 +23,12 @@ craftTimes
 -NOT NULLABLE
 
 ItemStack(item,amount)
-Vanilla item : Items.item-name ex)Items.thorium , Items.surgealloy
+Vanilla item : Items.itemName ex)Items.thorium , Items.surgealloy
 or Vars.content.getByName(ContentType.item,"item-name")  ex) Vars.content.getByName(ContentType.item,"thorium"), Vars.content.getByName(ContentType.item,"surge-alloy")
 Modded item : Vars.content.getByName(ContentType.item,"Mod-Name"+"-"+"modded-item")
 
 LiquidStack(liquid,amount)
-Vanilla liquids : Liquids.item-name ex)Liquids.oil , Liquids.slag
+Vanilla liquids : Liquids.liquidName ex)Liquids.oil , Liquids.slag
 or Vars.content.getByName(ContentType.liquid,"liquids-name")  ex) Vars.content.getByName(ContentType.liquid,"oil"), Vars.content.getByName(ContentType.liquid,"water")
 Modded liquids : Vars.content.getByName(ContentType.liquid,"Mod-Name"+"-"+"modded-liquids")
 
