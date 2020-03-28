@@ -23,7 +23,13 @@ craftTimes
 
 ItemStack(item,amount)
 Vanilla item : Items.itemName ex)Items.thorium , Items.surgealloy
+list: scrap, copper, lead, graphite, coal, titanium, thorium, silicon, plastanium, phasefabric, surgealloy,
+    sporePod, sand, blastCompound, pyratite, metaglass
+    
 or Vars.content.getByName(ContentType.item,"item-name")  ex) Vars.content.getByName(ContentType.item,"thorium"), Vars.content.getByName(ContentType.item,"surge-alloy")
+list: scrap, copper. lead, graphite, coal, titanium, thorium, silicon, plastanium, phase-fabric, surge-alloy,
+    spore-pod, sand, blast-compound, pyratite, metaglass
+
 Modded item : Vars.content.getByName(ContentType.item,"Mod-Name"+"-"+"modded-item")
 
 LiquidStack(liquid,amount)
@@ -33,8 +39,6 @@ Modded liquids : Vars.content.getByName(ContentType.liquid,"Mod-Name"+"-"+"modde
 
 
 */
-
-
 
 
 {
