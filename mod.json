@@ -1,0 +1,7 @@
+name: "multi-lib-example"
+displayName: "Multi Lib Example"
+author: "younggam"
+description: "[red]m[yellow]u[orange]l[green]t[#01DF74]i"
+version: "0.0"
+minGameVersion: "104"
+dependencies:["multi-lib"]
