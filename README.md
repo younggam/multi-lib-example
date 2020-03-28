@@ -1,4 +1,4 @@
 # multi-lib-example
 Mindustry mode. Example of multi-lib 
 
-just see code.
+just see comments in code.
