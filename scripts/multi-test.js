@@ -2,8 +2,8 @@ const multiLib=require("multi-lib/wrapper");
 const multi=multiLib.extend(GenericCrafter,GenericCrafter.GenericCrafterEntity,"multi",{
 // you can customize here ex) draw(tile)
 },
-/*length of output, input, crafTimes should same.
-if not, I'm not sure which error happens
+/*length of output, input, crafTimes should be same.
+if not, I'm not sure which error happens.
 
 output
 -second from the back : liquid *IF YOU DON't NEED IT, YOU MUST SET NULL**only one kind of liquid available for each output*
@@ -21,52 +21,60 @@ craftTimes
 -1=1frame=1/60second
 -NOT NULLABLE
 
-ItemStack(item,amount)
-Vanilla item : Items.itemName ex)Items.thorium , Items.surgealloy
-list: scrap, copper, lead, graphite, coal, titanium, thorium, silicon, plastanium, phasefabric, surgealloy,
-    sporePod, sand, blastCompound, pyratite, metaglass
-    
-or Vars.content.getByName(ContentType.item,"item-name")  ex) Vars.content.getByName(ContentType.item,"thorium"), Vars.content.getByName(ContentType.item,"surge-alloy")
+[item,amount]
+Vanilla item : "item-name"
 list: scrap, copper. lead, graphite, coal, titanium, thorium, silicon, plastanium, phase-fabric, surge-alloy,
     spore-pod, sand, blast-compound, pyratite, metaglass
 
-Modded item : Vars.content.getByName(ContentType.item,"Mod-Name"+"-"+"modded-item")
+Modded item : "Mod-Name"+"-"+"item-name"
+item-name is .json file name
 
-LiquidStack(liquid,amount)
-Vanilla liquids : Liquids.LiquidName ex)Liquids.oil , Liquids.slag
-or Vars.content.getByName(ContentType.liquid,"liquids-name")  ex) Vars.content.getByName(ContentType.liquid,"oil"), Vars.content.getByName(ContentType.liquid,"water")
-Modded liquids : Vars.content.getByName(ContentType.liquid,"Mod-Name"+"-"+"modded-liquids")
+[liquid,amount]
+Vanilla liquids : "liquid-name"
 
+Modded liquids :"Mod-Name"+"-"+"mod-liquid"
+liquid-name is .json file name
 
 */
 
-
 {
   output:[
-    [null,10],
-    [ItemStack(Vars.content.getByName(ContentType.item,"thorium"),1),ItemStack(Vars.content.getByName(ContentType.item,"surge-alloy"),3),LiquidStack(Vars.content.getByName(ContentType.liquid,"slag"),5),null],
-    [ItemStack(Vars.content.getByName(ContentType.item,"scrap"),1),ItemStack(Vars.content.getByName(ContentType.item,"plastanium"),2),ItemStack(Vars.content.getByName(ContentType.item,"spore-pod"),2),LiquidStack(Vars.content.getByName(ContentType.liquid,"oil"),5),10],
-    [ItemStack(Vars.content.getByName(ContentType.item,"silicon"),1),null,null],
+    [["multi-lib-example"+"-"+"gun-powder",1]   ,null   ,10],
+    [["thorium",1]                              ,["surge-alloy",3]  ,["slag",5]         ,null],
+    [["scrap",1]                                ,["plastanium",2]   ,["spore-pod",2]    ,["oil",5]  ,10],
+    [["silicon",1]                              ,null               ,null],
+    [["multi-lib-example"+"-"+"gun-powder",1]   ,null               ,10],
+    [["thorium",1]                              ,["surge-alloy",3]  ,["slag",5]         ,null],
+    [["scrap",1]                                ,["plastanium",2]   ,["spore-pod",2]    ,["oil",5]  ,10],
+    [["silicon",1]                              ,null               ,null],
+    [["multi-lib-example"+"-"+"gun-powder",1]   ,null               ,10],
+    [["thorium",1]                              ,["surge-alloy",3]  ,["slag",5]         ,null],
   ],
   input:[
-    [ItemStack(Vars.content.getByName(ContentType.item,"sand"),1),ItemStack(Vars.content.getByName(ContentType.item,"lead"),2),LiquidStack(Vars.content.getByName(ContentType.liquid,"water"),5),null],
-    [ItemStack(Vars.content.getByName(ContentType.item,"coal"),1),ItemStack(Vars.content.getByName(ContentType.item,"sand"),1),LiquidStack(Vars.content.getByName(ContentType.liquid,"water"),5),1],
-    [ItemStack(Vars.content.getByName(ContentType.item,"pyratite"),1),ItemStack(Vars.content.getByName(ContentType.item,"blast-compound"),1),LiquidStack(Vars.content.getByName(ContentType.liquid,"water"),5),1],
-    [ItemStack(Vars.content.getByName(ContentType.item,"sand"),1),null,null],
+    [["sand",1]     ,["lead",2]             ,["water",5]    ,null],
+    [["coal",1]     ,["sand",1]             ,["water",5]    ,1],
+    [["pyratite",1] ,["blast-compound",1]   ,["water",5]    ,1],
+    [["sand",1]     ,null                   ,null],
+    [["sand",1]     ,["lead",2]             ,["water",5]    ,null],
+    [["coal",1]     ,["sand",1]             ,["water",5]    ,1],
+    [["pyratite",1] ,["blast-compound",1]   ,["water",5]    ,1],
+    [["sand",1]     ,null                   ,null],
+    [["sand",1]     ,["lead",2]             ,["water",5]    ,null],
+    [["coal",1]     ,["sand",1]             ,["water",5]    ,1],
   ],
-  craftTimes:[12,60,72,30]
+  craftTimes:[12,60,72,30,12,60,72,30,12,60]
 });
 
 /*you can use this without json.
 
 YOU MUST NOT MODIFY VALUE OF
+THESE
 
 configurable=true;
 outputsPower=true;
 hasItems=true;
 hasLiquids=true;
-hasPower
-THESE
+hasPower=true;
 
 */
 
