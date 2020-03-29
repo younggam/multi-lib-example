@@ -25,7 +25,7 @@ craftTimes
 
 [item,amount]
 Vanilla item : "item-name"
-list: scrap, copper. lead, graphite, coal, titanium, thorium, silicon, plastanium, phase-fabric, surge-alloy,
+list: scrap, copper, lead, graphite, coal, titanium, thorium, silicon, plastanium, phase-fabric, surge-alloy,
     spore-pod, sand, blast-compound, pyratite, metaglass
 
 Modded item : "Mod-Name"+"-"+"item-name"
@@ -34,7 +34,7 @@ item-name is .json file name
 [liquid,amount]
 Vanilla liquids : "liquid-name"
 
-Modded liquids :"Mod-Name"+"-"+"mod-liquid"
+Modded liquids :"Mod-Name"+"-"+"liquid-name"
 liquid-name is .json file name
 
 */
