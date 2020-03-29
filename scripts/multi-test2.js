@@ -5,6 +5,7 @@ const multi2=multiLib.extend(GenericCrafter,GenericCrafter.GenericCrafterEntity,
 
 /*length of output, input, crafTimes should be same.
 if not, I'm not sure which error happens.
+max length is 10, and can be extended manually in multi-lib.
 
 output
 -second from the back : liquid *IF YOU DON't NEED IT, YOU MUST SET NULL**only one kind of liquid available for each output*
