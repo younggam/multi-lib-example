@@ -1,10 +1,12 @@
+//get script from multi-lib
 const multiLib=require("multi-lib/wrapper");
+//you can use GenericSmelter with GenericSmelter.GenericSmelterEntity
 const multi=multiLib.extend(GenericCrafter,GenericCrafter.GenericCrafterEntity,"multi",{
 // you can customize here ex) draw(tile)
 },
 /*length of output, input, crafTimes should be same.
 if not, I'm not sure which error happens.
-max length is 10, and can be extended manually in multi-lib.
+length of recipes is not limited now.
 
 output
 -second from the back : liquid *IF YOU DON't NEED IT, YOU MUST SET NULL**only one kind of liquid available for each output*
