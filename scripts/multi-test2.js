@@ -56,8 +56,7 @@ liquid-name is .json file name
   ],
   craftTimes:[12,60,72,30]
 });
-/*you can use this without json.
-
+/*
 YOU MUST NOT MODIFY VALUE OF THESE
 
 configurable=true;
@@ -69,7 +68,8 @@ hasPower=true;
 
 multi2.localizedName="multi2";
 multi2.description="multi2";
-
+//disable inventory
+multi2.enableInv=false;
 multi2.itemCapacity= 30;
 multi2.liquidCapacity= 20;
 multi2.size= 4;

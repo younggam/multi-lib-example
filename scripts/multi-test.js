@@ -68,8 +68,7 @@ liquid-name is .json file name
   craftTimes:[12,60,72,30,12,60,72,30,12,60]
 });
 
-/*you can use this without json.
-
+/*
 YOU MUST NOT MODIFY VALUE OF
 THESE
 
@@ -83,7 +82,8 @@ hasPower=true;
 
 multi.localizedName="multi";
 multi.description="multi";
-
+//enable inventory
+multi.enableInv=true;
 multi.itemCapacity= 30;
 multi.liquidCapacity= 20;
 multi.size= 4;
