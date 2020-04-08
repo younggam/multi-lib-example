@@ -1,4 +1,7 @@
 # multi-lib-example
 Mindustry mode. Example of multi-lib 
+https://github.com/younggam/multi-lib
 
-just see comments in code.
+Instructions are in scripts.
+
+
