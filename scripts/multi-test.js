@@ -1,6 +1,6 @@
 //get script from multi-lib
 const multiLib=require("multi-lib/wrapper");
-//you can use GenericSmelter with GenericSmelter.GenericSmelterEntity
+//you can use GenericSmelter
 const multi=multiLib.extend(GenericCrafter,GenericCrafter.GenericCrafterEntity,"multi",{
 // you can customize here ex) draw(tile)
 },
@@ -9,16 +9,14 @@ if not, I'm not sure which error happens.
 length of recipes is not limited now.
 
 output
--second from the back : liquid *IF YOU DON't NEED IT, YOU MUST SET NULL**only one kind of liquid available for each output*
--first from the back : power production *IF YOU DON't NEED IT, YOU MUST SET NULL*
--else : items *place representative item in first space*
-
-*FACTORY DUMP ITEM OF OUTPUT UNCONDITIONALLY*
+-first place : array of items      *IF YOU DON't NEED IT, YOU MUST SET NULL*
+-second place: array of liquids    *IF YOU DON't NEED IT, YOU MUST SET NULL*
+-third place: power                *IF YOU DON't NEED IT, YOU MUST SET NULL*
 
 input
--second from the back : liquid *IF YOU DON't NEED IT, YOU MUST SET NULL**only one kind of liquid available for each output*
--first from the back : power usage *IF YOU DON't NEED IT, YOU MUST SET NULL*
--else : items *free*
+-first place : array of items      *IF YOU DON't NEED IT, YOU MUST SET NULL*
+-second place: array of liquids    *IF YOU DON't NEED IT, YOU MUST SET NULL*
+-third place: power                *IF YOU DON't NEED IT, YOU MUST SET NULL*
 
 craftTimes
 -1=1frame=1/60second
@@ -41,32 +39,45 @@ liquid-name is .json file name
 */
 
 {
-  output:[
-    [["multi-lib-example"+"-"+"gun-powder",1]   ,null   ,10],
-    [["thorium",1]                              ,["surge-alloy",3]  ,["slag",5]         ,null],
-    [["scrap",1]                                ,["plastanium",2]   ,["spore-pod",2]    ,["oil",5]  ,10],
-    [["silicon",1]                              ,null               ,null],
-    [["multi-lib-example"+"-"+"gun-powder",1]   ,null               ,10],
-    [["thorium",1]                              ,["surge-alloy",3]  ,["slag",5]         ,null],
-    [["scrap",1]                                ,["plastanium",2]   ,["spore-pod",2]    ,["oil",5]  ,10],
-    [["silicon",1]                              ,null               ,null],
-    [["multi-lib-example"+"-"+"gun-powder",1]   ,null               ,10],
-    [["thorium",1]                              ,["surge-alloy",3]  ,["slag",5]         ,null],
+  _output:[
+    [/*items*/ null                                                      /*liquids*/,null                        /*power*/,null],
+    [/*items*/ [          ["thorium",1]   ,   ["surge-alloy",2]         ]/*liquids*/,[        ["slag",5]        ]/*power*/,null],
+    [/*items*/ [  ["scrap",1]  ,  ["plastanium",2]  ,  ["spore-pod",2]  ]/*liquids*/,[        ["oil",5]         ]/*power*/,null],
+    [/*items*/ [                    ["silicon",1]                       ]/*liquids*/,null                        /*power*/,null],
+    [/*items*/ [      ["multi-lib-example"+"-"+"gun-powder",1]          ]/*liquids*/,null                        /*power*/,null],
+    [/*items*/ [          ["thorium",1]   ,   ["surge-alloy",3]         ]/*liquids*/,[        ["slag",3]        ]/*power*/,null],
+    [/*items*/ [  ["scrap",1]  ,  ["plastanium",2]  ,  ["spore-pod",2]  ]/*liquids*/,[        ["oil",5]         ]/*power*/,null],
+    [/*items*/ [                    ["silicon",1]                       ]/*liquids*/,null                        /*power*/,null],
+    [/*items*/ [      ["multi-lib-example"+"-"+"gun-powder",1]          ]/*liquids*/,null                        /*power*/,null],
+    [/*items*/ [          ["thorium",1]   ,   ["surge-alloy",3]         ]/*liquids*/,[  ["slag",5] , ["oil",4]  ]/*power*/,null],
   ],
-  input:[
-    [["sand",1]     ,["lead",2]             ,["water",5]    ,null],
-    [["coal",1]     ,["sand",1]             ,["water",5]    ,1],
-    [["pyratite",1] ,["blast-compound",1]   ,["water",5]    ,1],
-    [["sand",1]     ,null                   ,null],
-    [["sand",1]     ,["lead",2]             ,["water",5]    ,null],
-    [["coal",1]     ,["sand",1]             ,["water",5]    ,1],
-    [["pyratite",1] ,["blast-compound",1]   ,["water",5]    ,1],
-    [["sand",1]     ,null                   ,null],
-    [["sand",1]     ,["lead",2]             ,["water",5]    ,null],
-    [["coal",1]     ,["sand",1]             ,["water",5]    ,1],
+  _input:[
+    [/*items*/ [      ["sand",1]   ,   ["lead",2]             ]/*liquids*/,[  ["water",5] , ["cryofluid",3] ]/*power*/,null],
+    [/*items*/ [      ["coal",1]   ,   ["sand",1]             ]/*liquids*/,[          ["water",5]           ]/*power*/,1],
+    [/*items*/ [  ["pyratite",1]   ,   ["blast-compound",1]   ]/*liquids*/,[          ["water",5]           ]/*power*/,1],
+    [/*items*/ [                  ["sand",1]                  ]/*liquids*/,null                              /*power*/,null],
+    [/*items*/ [      ["sand",1]   ,   ["lead",2]             ]/*liquids*/,[          ["water",5]           ]/*power*/,null],
+    [/*items*/ [      ["coal",1]   ,   ["sand",1]             ]/*liquids*/,[          ["water",5]           ]/*power*/,1],
+    [/*items*/ [  ["pyratite",1]   ,   ["blast-compound",1]   ]/*liquids*/,[          ["water",5]           ]/*power*/,1],
+    [/*items*/ [                  ["sand",1]                  ]/*liquids*/,null                              /*power*/,null],
+    [/*items*/ [      ["sand",1]   ,   ["lead",2]             ]/*liquids*/,[          ["water",5]           ]/*power*/,null],
+    [/*items*/ [      ["coal",1]   ,   ["sand",1]             ]/*liquids*/,[          ["water",5]           ]/*power*/,1],
   ],
-  craftTimes:[12,60,72,30,12,60,72,30,12,60]
+  craftTimes:[12,60,72,30,12,60,72,30,12,60],
+  //DON'T MODIFY THESE
+  output:[],
+  input:[],
+  itemList:[],
+  liquidList:[],
+  isSameOutput:[],
+  //
 });
+/*true: enable displaying inventory
+false:disable displaying inventory*/
+multi.enableInv=false;
+/*true: dump items and liquids of output according to button
+false: dump items and liquids of output unconditionally*/
+multi.dumpToggle=false;
 
 /*
 YOU MUST NOT MODIFY VALUE OF
@@ -79,11 +90,9 @@ hasLiquids=true;
 hasPower=true;
 
 */
-
+//using this without json. not recommanded because can cause error.
 multi.localizedName="multi";
 multi.description="multi";
-//enable inventory
-multi.enableInv=true;
 multi.itemCapacity= 30;
 multi.liquidCapacity= 20;
 multi.size= 4;

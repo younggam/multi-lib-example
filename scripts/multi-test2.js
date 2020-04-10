@@ -1,25 +1,22 @@
 //get script from multi-lib
 const multiLib=require("multi-lib/wrapper");
-//you can use GenericSmelter with GenericSmelter.GenericSmelterEntity
-const multi2=multiLib.extend(GenericCrafter,GenericCrafter.GenericCrafterEntity,"multi2",{
+//you can use GenericSmelter
+const multi2=multiLib.extend(GenericSmelter,GenericCrafter.GenericCrafterEntity,"multi2",{
 // you can customize here ex) draw(tile)
 },
-
 /*length of output, input, crafTimes should be same.
 if not, I'm not sure which error happens.
 length of recipes is not limited now.
 
 output
--second from the back : liquid *IF YOU DON't NEED IT, YOU MUST SET NULL**only one kind of liquid available for each output*
--first from the back : power production *IF YOU DON't NEED IT, YOU MUST SET NULL*
--else : items *place representative item in first space*
-
-*FACTORY DUMP ITEM OF OUTPUT UNCONDITIONALLY*
+-first place : array of items      *IF YOU DON't NEED IT, YOU MUST SET NULL*
+-second place: array of liquids    *IF YOU DON't NEED IT, YOU MUST SET NULL*
+-third place: power                *IF YOU DON't NEED IT, YOU MUST SET NULL*
 
 input
--second from the back : liquid *IF YOU DON't NEED IT, YOU MUST SET NULL**only one kind of liquid available for each output*
--first from the back : power usage *IF YOU DON't NEED IT, YOU MUST SET NULL*
--else : items *free*
+-first place : array of items      *IF YOU DON't NEED IT, YOU MUST SET NULL*
+-second place: array of liquids    *IF YOU DON't NEED IT, YOU MUST SET NULL*
+-third place: power                *IF YOU DON't NEED IT, YOU MUST SET NULL*
 
 craftTimes
 -1=1frame=1/60second
@@ -42,20 +39,33 @@ liquid-name is .json file name
 */
 
 {
-  output:[
-    [["copper",1]   ,null               ,null               ,null       ,10],
-    [["thorium",1]  ,["surge-alloy",3]  ,["slag",5]         ,null],
-    [["scrap",1]    ,["plastanium",2]   ,["spore-pod",2]    ,["oil",5]  ,10],
-    [["silicon",1]  ,null               ,null],
+  _output:[
+    [/*items*/[                 ["copper",1]  ,  ["graphite",1]    ,null    ]/*liquids*/,[  null  ]/*power*/,10],
+    [/*items*/[                ["thorium",1]  ,  ["surge-alloy",3]          ]/*liquids*/,null      /*power*/,null],
+    [/*items*/[     ["scrap",1]  ,  ["plastanium",2]  ,  ["spore-pod",2]    ]/*liquids*/,null      /*power*/,10],
+    [/*items*/[                         ["silicon",1]                       ]/*liquids*/,null      /*power*/,null],
   ],
-  input:[
-    [["sand",1]     ,["lead",2]             ,["water",5]    ,null],
-    [["coal",1]     ,["sand",1]             ,["water",5]    ,1],
-    [["pyratite",1] ,["blast-compound",1]   ,["water",5]    ,1],
-    [["sand",1]     ,null                   ,null],
+  _input:[
+    [/*items*/[       ["sand",1]  ,  ["lead",2]             ]/*liquids*/,null      /*power*/,null],
+    [/*items*/[       ["coal",1]  ,  ["sand",1]             ]/*liquids*/,null      /*power*/,null],
+    [/*items*/[   ["pyratite",1]  ,  ["blast-compound",1]   ]/*liquids*/,[  null  ]/*power*/,null],
+    [/*items*/[              ["sand",1]                     ]/*liquids*/,null      /*power*/,null],
   ],
-  craftTimes:[12,60,72,30]
+  craftTimes:[12,60,72,30],
+  //DON'T MODIFY THESE
+  output:[],
+  input:[],
+  itemList:[],
+  liquidList:[],
+  isSameOutput:[],
+  //
 });
+/*true: enable displaying inventory
+false:disable displaying inventory*/
+multi2.enableInv=true;
+/*true: dump items and liquids of output according to button
+false: dump items and liquids of output unconditionally*/
+multi2.dumpToggle=true;
 /*
 YOU MUST NOT MODIFY VALUE OF THESE
 
@@ -64,12 +74,11 @@ outputsPower=true;
 hasItems=true;
 hasLiquids=true;
 hasPower=true;
-*/
 
+*/
+//using this without json. not recommanded because can cause error.
 multi2.localizedName="multi2";
 multi2.description="multi2";
-//disable inventory
-multi2.enableInv=false;
 multi2.itemCapacity= 30;
 multi2.liquidCapacity= 20;
 multi2.size= 4;
