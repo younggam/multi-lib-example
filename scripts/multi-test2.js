@@ -1,6 +1,6 @@
 //get script from multi-lib
 const multiLib=require("multi-lib/wrapper");
-//you can use GenericSmelter
+//you can use GenericSmelter                                                    ▼this has to be same with .json file name
 const multi2=multiLib.extend(GenericSmelter,GenericCrafter.GenericCrafterEntity,"multi2",{
 // you can customize here ex) draw(tile)
 },
