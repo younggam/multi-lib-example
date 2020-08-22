@@ -1,3 +1,4 @@
+require("multi2-test");
+require("multi-lib-example/multi2-test2");
 require("multi-test");
-//you have to add mod-name like this to stop using multi-lib and enable your mod scripts
 require("multi-lib-example/multi-test2");
