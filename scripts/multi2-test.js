@@ -148,6 +148,9 @@ try{//nvm
   multi.health= 100;
   multi.craftEffect= Fx.pulverizeMedium;
   multi.updateEffect=Fx.none;
+  /*true: dump items and liquids of output according to button
+  false: dump items and liquids of output unconditionally*/
+  multi2.dumpToggle=false;
 
   multi.requirements(Category.crafting,ItemStack.with(Items.copper,75));
 }
