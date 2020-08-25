@@ -70,6 +70,14 @@ try{//nvm
       this._myProp=a;
     }*/
   });
+  /*
+  YOU MUST NOT MODIFY VALUE OF THESE
+  configurable
+  outputsPower
+  hasItems
+  hasLiquids
+  hasPower
+  */
   //using example without .json file. I don't recommand this because you can't use mod item as requirements.
   multi2.localizedName="multi2_";
   multi2.description="multi2_";

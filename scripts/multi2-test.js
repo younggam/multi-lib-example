@@ -20,8 +20,10 @@ try{//nvm
     },*/
     {//1  you can skip recipe properties
       input:{
-        items:["sand/1","lead/2"],
-        liquids:["water/5","cryofluid/3"],
+
+      },
+      output:{
+        power:5.25
       },
       craftTime:12
     },
@@ -139,6 +141,14 @@ try{//nvm
       this._myProp=a;
     }*/
   });
+  /*
+  YOU MUST NOT MODIFY VALUE OF THESE
+  configurable
+  outputsPower
+  hasItems
+  hasLiquids
+  hasPower
+  */
   //using example without .json file. I don't recommand this because you can't use mod item as requirements.
   multi.localizedName="multi_";
   multi.description="multi_";
@@ -155,5 +165,5 @@ try{//nvm
   multi.requirements(Category.crafting,ItemStack.with(Items.copper,75));
 }
 catch(err){
-  print("multi-lib2 is not enabled")
+  print("multi-lib2 is not enabled");
 }
